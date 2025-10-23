@@ -7,6 +7,10 @@ import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn as AIN
 from datetime import datetime
 import subprocess
+import socket
+import json
+import queue
+import logging
 
 class BowlingMachine:
 	"""Controls physical bowling machine hardware - QUEUE-BASED BALL SENSOR"""
@@ -73,10 +77,13 @@ class BowlingMachine:
 			self.use_queue = True
 			self.logger.info("Bowling machine initialized - QUEUE-BASED BALL SENSOR (daemon process)")
 		else:
-			self.use_queue = False
-			self.logger.info("Bowling machine initialized - POLLING MODE (fallback)")
+			# No detection queue provided: start socket-feed thread and use an internal Queue
+			self.logger.info("No detection_queue provided - attempting socket-based feed")
+			self.detection_queue = queue.Queue()
+			self.use_queue = True
+			self._start_socket_feed_thread()
+			self.logger.info("Bowling machine initialized - SOCKET FEED MODE (daemon process)")
 
-	
 	def _init_ads_sensors(self):
 		"""Initialize ADS1115 sensors with retry logic"""
 		retry_count = 0
@@ -110,6 +117,44 @@ class BowlingMachine:
 		
 		self.logger.error("Failed to initialize ADS sensors after max retries")
 		raise RuntimeError("Could not initialize ADS sensors")
+
+	# --- socket feed helpers -------------------------------------------------
+	def _start_socket_feed_thread(self):
+		self.socket_thread = threading.Thread(target=self._socket_feed_loop, daemon=True)
+		self.socket_thread.start()
+
+	def _socket_feed_loop(self):
+		"""Connect to daemon unix socket and push JSON messages into self.detection_queue"""
+		SOCKET_PATH = '/tmp/ball_sensor.sock'
+		while True:
+			try:
+				sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+				self.logger.info(f"Connecting to ball sensor socket at {SOCKET_PATH}...")
+				sock.connect(SOCKET_PATH)
+				self.logger.info("Connected to ball sensor socket")
+				f = sock.makefile('r', encoding='utf-8', newline='\n')
+				while True:
+					line = f.readline()
+					if not line:
+						self.logger.info("Ball sensor socket closed by daemon")
+						f.close()
+						sock.close()
+						break
+					line = line.strip()
+					if not line:
+						continue
+					try:
+						msg = json.loads(line)
+						if isinstance(msg, dict):
+							self.detection_queue.put(msg)
+						else:
+							self.logger.debug(f"Unexpected message (not dict) from socket: {msg}")
+					except Exception as e:
+						self.logger.error(f"Failed to parse JSON from socket: {e} -- raw: {line}")
+			except Exception as e:
+				self.logger.debug(f"Socket feed connection failed or disconnected: {e}")
+			time.sleep(0.5)
+	# -------------------------------------------------------------------------
 
 	def set_active_game(self, game):
 		"""Set the currently active game"""
@@ -158,319 +203,27 @@ class BowlingMachine:
 				if self.detection_queue and not self.detection_queue.empty():
 					detection = self.detection_queue.get(timeout=0.1)
 					
-					if detection.get('type') == 'ball_detected':
+					msg_type = detection.get('type')
+					if msg_type == 'ball_detected':
 						current_time = detection.get('timestamp', time.time())
 						self.logger.info(f"[DAEMON] Ball detected from sensor daemon")
 						self.last_detection_time = current_time
 						self._handle_ball_detected()
+					elif msg_type == 'last_ball':
+						self.logger.info("[DAEMON] LAST_BALL received - calling manual_reset")
+						try:
+							self.manual_reset()
+						except Exception as e:
+							self.logger.error(f"manual_reset failed: {e}")
+					elif msg_type == 'pin_set':
+						pins = detection.get('pins')
+						self.logger.info(f"[DAEMON] PIN_SET received: {pins}")
+						# TODO: map pins into lane_config or update pin mappings as needed
+					else:
+						self.logger.debug(f"Queue listener got unhandled message type: {msg_type}")
 				else:
 					time.sleep(0.01)
 					
 			except Exception as e:
 				self.logger.debug(f"Queue listener error: {e}")
 				time.sleep(0.01)
-	
-	
-	def _polling_loop(self):
-		"""Fallback: Background thread polling GPIO for state changes"""
-		self.logger.info("Polling loop started (fallback - daemon not available)")
-		
-		last_pin_state = None
-		debounce_active = False
-		debounce_until = 0
-		
-		while self.sensor_running:
-			if self.sensor_suspended:
-				time.sleep(0.05)
-				continue
-			
-			try:
-				current_state = GPIO.input(self.gp7)
-				current_time = time.time()
-				
-				# Detect rising edge (LOW → HIGH transition)
-				if current_state == 1 and last_pin_state == 0:
-					self.logger.info(f"[POLLING] Rising edge at {current_time}")
-					
-					# Check debounce window
-					if not debounce_active:
-						# Valid detection
-						if self.last_detection_time:
-							time_delta = (current_time - self.last_detection_time) * 1000
-							self.logger.info(f"[POLLING] Ball detected (Δ {time_delta:.1f}ms)")
-						else:
-							self.logger.info(f"[POLLING] Ball detected (initial)")
-						
-						self.last_detection_time = current_time
-						
-						# Set debounce (150ms)
-						debounce_active = True
-						debounce_until = current_time + 0.15
-						
-						# Process ball
-						self._handle_ball_detected()
-					else:
-						self.logger.debug(f"[POLLING] Edge ignored - within debounce window")
-				
-				# Check if debounce expired
-				if debounce_active and current_time >= debounce_until:
-					debounce_active = False
-				
-				last_pin_state = current_state
-				time.sleep(0.002)  # 2ms polling interval
-				
-			except Exception as e:
-				self.logger.error(f"Polling error: {e}")
-				time.sleep(0.01)
-	
-	
-	def _handle_ball_detected(self):
-		"""Handle ball detection event"""
-		if not self.active_game:
-			self.logger.info("Ball detected but no active game - ignoring")
-			return
-		
-		if hasattr(self.active_game, 'session_expired') and self.active_game.session_expired:
-			self.logger.info("Ball detected but session expired - ignoring")
-			return
-		
-		if hasattr(self.active_game, 'session_complete') and self.active_game.session_complete:
-			self.logger.info("Ball detected but session complete - ignoring")
-			return
-		
-		if hasattr(self.active_game, 'hold_active') and self.active_game.hold_active:
-			self.logger.info("Ball detected but game on hold - ignoring")
-			return
-		
-		self.logger.info("Ball detected - processing throw")
-		self.sensor_suspended = True
-		
-		# Suspend daemon from sending more detections
-		if self.control_queue:
-			self.control_queue.put({'action': 'suspend'})
-			self.logger.info("Daemon suspended")
-		
-		try:
-			pin_state = self._process_ball_throw()
-			
-			if self.pin_area:
-				self.pin_area.pins_down = [bool(p) for p in pin_state]
-			
-			if self.active_game and hasattr(self.active_game, 'process_ball'):
-				self.active_game.process_ball(pin_state)
-			
-		except Exception as e:
-			self.logger.error(f"Error processing ball throw: {e}")
-			import traceback
-			self.logger.error(traceback.format_exc())
-		
-		finally:
-			# Resume daemon
-			if self.control_queue:
-				self.control_queue.put({'action': 'resume'})
-				self.logger.info("Daemon resumed")
-			
-			self.sensor_suspended = False
-
-	def _process_ball_throw(self):
-		"""
-		Process a ball throw - detect pins down and apply machine operations
-		Returns: [int, int, int, int, int] representing final pin state (1=down, 0=standing)
-		"""
-		start_time = time.time()
-		self.logger.info(f"Ball throw processing started at {start_time}")
-		
-		# Control dictionary - starts with current pin state
-		control = {
-			'lTwo': 1 if self.pins_standing[0] == 0 else 0,
-			'lThree': 1 if self.pins_standing[1] == 0 else 0,
-			'cFive': 1 if self.pins_standing[2] == 0 else 0,
-			'rThree': 1 if self.pins_standing[3] == 0 else 0,
-			'rTwo': 1 if self.pins_standing[4] == 0 else 0
-		}
-		
-		control_start = control.copy()
-		
-		# Detect pins knocked down
-		pins_knocked = self._detect_pins_down(control)
-		
-		self.logger.debug(f"Control start: {control_start}, Control end: {control}")
-		
-		# Check if no pins knocked
-		if pins_knocked == 0:
-			self.logger.info("No pins knocked - returning")
-			return [0, 0, 0, 0, 0]
-		
-		# Check if all pins down
-		if all(c == 0 for c in control.values()):
-			self.logger.info("All pins knocked down - full reset")
-			self.reset_pins()
-			return [1, 1, 1, 1, 1]
-		
-		# Pins were knocked but not all - reset machine
-		self.logger.info(f"{pins_knocked} pins knocked - cycling machine")
-		self._machine_reset()
-		
-		# Wait for machine pin
-		self._wait_for_machine_pin()
-		
-		# Apply pin breaks
-		self._apply_pin_breaks(control)
-		
-		# Update internal pin state
-		self.pins_standing = [
-			1 if control['lTwo'] == 0 else 0,
-			1 if control['lThree'] == 0 else 0,
-			1 if control['cFive'] == 0 else 0,
-			1 if control['rThree'] == 0 else 0,
-			1 if control['rTwo'] == 0 else 0
-		]
-		
-		end_time = time.time()
-		total_time = end_time - start_time
-		self.logger.info(f"Ball throw processing completed in {total_time:.2f}s")
-		
-		return self.pins_standing.copy()
-	
-	def _detect_pins_down(self, control):
-		"""
-		Detect which pins have been knocked down
-		Returns: number of pins knocked
-		"""
-		detection_start = time.time()
-		pins_knocked = 0
-		detection_timeout = 3.0  # 3 seconds to detect pins
-		
-		self.logger.debug("Starting pin detection")
-		
-		while time.time() - detection_start <= detection_timeout:
-			try:
-				# Check each pin sensor
-				if self.b20.voltage >= 4 and control[self.pb20] != 0:
-					control[self.pb20] = 0
-					pins_knocked += 1
-					self.logger.debug(f"{self.pb20} knocked down")
-				
-				time.sleep(0.02)
-				
-				if self.b12.voltage >= 4 and control[self.pb12] != 0:
-					control[self.pb12] = 0
-					pins_knocked += 1
-					self.logger.debug(f"{self.pb12} knocked down")
-				
-				time.sleep(0.02)
-				
-				if self.b11.voltage >= 4 and control[self.pb11] != 0:
-					control[self.pb11] = 0
-					pins_knocked += 1
-					self.logger.debug(f"{self.pb11} knocked down")
-				
-				time.sleep(0.02)
-				
-				if self.b13.voltage >= 4 and control[self.pb13] != 0:
-					control[self.pb13] = 0
-					pins_knocked += 1
-					self.logger.debug(f"{self.pb13} knocked down")
-				
-				time.sleep(0.02)
-				
-				if self.b10.voltage >= 4 and control[self.pb10] != 0:
-					control[self.pb10] = 0
-					pins_knocked += 1
-					self.logger.debug(f"{self.pb10} knocked down")
-				
-				time.sleep(0.5)
-				
-			except Exception as e:
-				self.logger.error(f"Pin detection error: {e}")
-				continue
-		
-		self.logger.info(f"Pin detection complete: {pins_knocked} pins knocked")
-		return pins_knocked
-	
-	def _machine_reset(self):
-		"""Trigger machine reset cycle"""
-		self.logger.debug("Machine reset triggered")
-		GPIO.output(self.gp6, 0)
-		time.sleep(0.35)
-		GPIO.output(self.gp6, 1)
-	
-	def _wait_for_machine_pin(self):
-		"""Wait for machine pin detection"""
-		start_time = time.time()
-		
-		if self.mp < 5.3 or self.mp > 6:
-			self.mp = 5.7
-			self.logger.debug(f"Machine pin timing reset to {self.mp}")
-		
-		self.logger.debug(f"Waiting for machine pin (timeout: {self.mp}s)")
-		
-		while True:
-			if time.time() - start_time <= self.mp:
-				try:
-					if self.b21.voltage >= 4:
-						elapsed = time.time() - start_time
-						self.logger.info(f"Machine pin detected at {elapsed:.2f}s")
-						self.moppo = 1
-						# Update timing
-						if self.moppo == 1:
-							self.mp = elapsed + 0.01
-							self.logger.debug(f"Updated machine pin timing to {self.mp}")
-							self.moppo = 0
-						break
-				except Exception as e:
-					self.logger.error(f"Machine pin detection error: {e}")
-					continue
-				time.sleep(0.02)
-			else:
-				self.logger.info("Machine pin timeout - manually activating breaks")
-				break
-	
-	def _apply_pin_breaks(self, control):
-		"""Apply pin breaks based on control state"""
-		self.logger.debug(f"Applying pin breaks: {control}")
-		
-		GPIO.output(self.gp1, control["lTwo"])
-		GPIO.output(self.gp2, control["lThree"])
-		GPIO.output(self.gp3, control["cFive"])
-		GPIO.output(self.gp4, control["rThree"])
-		GPIO.output(self.gp5, control["rTwo"])
-		
-		time.sleep(0.1)
-		
-		# Reset all pins to high
-		GPIO.output([self.gp1, self.gp2, self.gp3, self.gp4, self.gp5], 1)
-		
-		self.logger.debug("Pin breaks applied")
-	
-	def manual_reset(self):
-		"""Manual reset triggered by RESET button"""
-		print("BowlingMachine: Manual reset called")
-		
-		self._machine_reset()
-	
-		# Reset all pins to standing (GPIO low)
-		self.pins_standing = [0, 0, 0, 0, 0]
-	
-		# Update internal state
-		self.pin_state = [0, 0, 0, 0, 0]
-	
-		# Update pin area display if connected
-		if self.pin_area:
-			self.pin_area.reset_pins()
-	
-		print("All pins reset to standing position")
-
-	def reset_pins(self):
-		"""Alias for manual_reset for compatibility"""
-		self.manual_reset()
-	
-	def get_pin_state(self):
-		"""Get current pin state"""
-		return self.pins_standing.copy()
-
-	def cleanup(self):
-		"""Cleanup GPIO and stop sensor"""
-		self.logger.info("Cleaning up bowling machine")
-		self.stop_ball_sensor()
-		GPIO.cleanup()
