@@ -1,0 +1,3 @@
+/home/runner/work/centrebowl/centrebowl/build/CMakeFiles/centrebowl_cpp.dir
+/home/runner/work/centrebowl/centrebowl/build/CMakeFiles/edit_cache.dir
+/home/runner/work/centrebowl/centrebowl/build/CMakeFiles/rebuild_cache.dir
