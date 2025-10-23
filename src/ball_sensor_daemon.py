@@ -72,11 +72,6 @@ class BallSensorDaemon:
         serv.setblocking(False)
         serv.bind(self.socket_path)
         serv.listen(1)
-        try:
-            os.chmod(self.socket_path, 0o666)
-            logger.info(f"Socket created at {self.socket_path} with 0666 permissions")
-        except Exception:
-            logger.warning("Failed to chmod socket, continuing with default permissions")
         logger.info(f"Socket server listening at {self.socket_path}")
         self.server_socket = serv
 
@@ -168,7 +163,7 @@ class BallSensorDaemon:
                 # Detect rising edge (LOW -> HIGH)
                 if current_state == 1 and last_state == 0:
                     # Check debounce
-                    if self.last_detection_time is None or 
+                    if self.last_detection_time is None or \
                        (current_time - self.last_detection_time) * 1000 >= self.debounce_ms:
 
                         logger.info(f"Ball detected at {current_time}")
@@ -258,8 +253,10 @@ class BallSensorDaemon:
 daemon = None
 detection_queue = None
 
+
 def start_ball_sensor_daemon(gpio_pin):
-    """Start the ball sensor in a separate process
+    """
+    Start the ball sensor in a separate process
     Returns: (Queue, process) - detection Queue may be None if not provided
     """
     global daemon, detection_queue
@@ -277,11 +274,12 @@ def start_ball_sensor_daemon(gpio_pin):
 
 
 def signal_handler(signum, frame):
-    """Handle shutdown gracefully""" 
+    """Handle shutdown gracefully"""
     global daemon
     if daemon:
         daemon.stop()
     sys.exit(0)
+
 
 if __name__ == '__main__':
     # Example standalone usage
