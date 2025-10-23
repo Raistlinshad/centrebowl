@@ -1,0 +1,13 @@
+{
+  "Lane": 0,
+  "ServerIP": "192.168.2.243",
+  "ServerPort": 50005,
+  "GameColors": {
+    "Game1_Background": "orange",
+    "Game1_Foreground": "black"
+  },
+  "MediaSettings": {
+    "ImageDirectory": "src/assets/images",
+    "EffectsDirectory": "src/assets/animations"
+  }
+}

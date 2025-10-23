@@ -1,0 +1,3266 @@
+{
+  "game_id": "20251004_130109",
+  "game_type": "5-pin",
+  "current_bowler_index": 0,
+  "bowlers": [
+    {
+      "name": "Bruce",
+      "frames": [
+        {
+          "balls": [
+            10,
+            0,
+            5
+          ],
+          "symbols": [
+            "10",
+            "-",
+            "5"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            3,
+            7,
+            5
+          ],
+          "symbols": [
+            "3",
+            "7",
+            "5"
+          ],
+          "pins": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            12,
+            null,
+            null
+          ],
+          "symbols": [
+            "12",
+            null,
+            null
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        15,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 25,
+      "pins_standing": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Steve",
+      "frames": [
+        {
+          "balls": [
+            12,
+            0,
+            0
+          ],
+          "symbols": [
+            "12",
+            "-",
+            "-"
+          ],
+          "pins": [
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            12,
+            3,
+            null
+          ],
+          "symbols": [
+            "12",
+            "/",
+            null
+          ],
+          "pins": [
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        12,
+        27,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 27,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Kevin",
+      "frames": [
+        {
+          "balls": [
+            15,
+            13,
+            2
+          ],
+          "symbols": [
+            "X",
+            "13",
+            "2"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            13,
+            2,
+            null
+          ],
+          "symbols": [
+            "L",
+            "/",
+            null
+          ],
+          "pins": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        30,
+        45,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 45,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Phillip",
+      "frames": [
+        {
+          "balls": [
+            7,
+            8,
+            10
+          ],
+          "symbols": [
+            "7",
+            "/",
+            "10"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            10,
+            2,
+            3
+          ],
+          "symbols": [
+            "10",
+            "2",
+            "3"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        25,
+        37,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 37,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Alex",
+      "frames": [
+        {
+          "balls": [
+            12,
+            3,
+            12
+          ],
+          "symbols": [
+            "12",
+            "/",
+            "12"
+          ],
+          "pins": [
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            12,
+            3,
+            null
+          ],
+          "symbols": [
+            "12",
+            "/",
+            null
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        27,
+        42,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 42,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Tom",
+      "frames": [
+        {
+          "balls": [
+            13,
+            2,
+            10
+          ],
+          "symbols": [
+            "L",
+            "/",
+            "10"
+          ],
+          "pins": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            10,
+            3,
+            2
+          ],
+          "symbols": [
+            "10",
+            "3",
+            "2"
+          ],
+          "pins": [
+            [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        25,
+        38,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 38,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "John",
+      "frames": [
+        {
+          "balls": [
+            10,
+            0,
+            5
+          ],
+          "symbols": [
+            "10",
+            "-",
+            "5"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            10,
+            0,
+            5
+          ],
+          "symbols": [
+            "10",
+            "-",
+            "5"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        15,
+        25,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 2,
+      "current_ball": 0,
+      "total_score": 25,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    },
+    {
+      "name": "Micheal",
+      "frames": [
+        {
+          "balls": [
+            10,
+            0,
+            5
+          ],
+          "symbols": [
+            "10",
+            "-",
+            "5"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "balls": [
+            15,
+            7,
+            8
+          ],
+          "symbols": [
+            "X",
+            "7",
+            "8"
+          ],
+          "pins": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            7,
+            8,
+            null
+          ],
+          "symbols": [
+            "7",
+            "/",
+            null
+          ],
+          "pins": [
+            [
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "balls": [
+            null,
+            null,
+            null
+          ],
+          "symbols": [
+            null,
+            null,
+            null
+          ],
+          "pins": [
+            null,
+            null,
+            null
+          ],
+          "pins_before": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              null,
+              null
+            ]
+          ]
+        }
+      ],
+      "frame_totals": [
+        15,
+        45,
+        60,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "current_frame": 3,
+      "current_ball": 0,
+      "total_score": 60,
+      "pins_standing": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode_data": {}
+    }
+  ]
+}
