@@ -16,7 +16,7 @@ class BowlingMachine:
 		self.logger = logger
 		self.active_game = None
 		self.pin_area = None
-		self.last_ball = None
+		self.last_ball = False  # Flag: if True, reset pins instead of applying breaks
 		self.detection_queue = detection_queue
 		self.control_queue = control_queue
 		
@@ -245,6 +245,11 @@ class BowlingMachine:
 		self.logger.info("Ball detected - processing throw")
 		self.sensor_suspended = True
 		
+		# Suspend daemon from sending more detections
+		if self.control_queue:
+			self.control_queue.put({'action': 'suspend'})
+			self.logger.info("Daemon suspended")
+		
 		try:
 			pin_state = self._process_ball_throw()
 			
@@ -260,6 +265,11 @@ class BowlingMachine:
 			self.logger.error(traceback.format_exc())
 		
 		finally:
+			# Resume daemon
+			if self.control_queue:
+				self.control_queue.put({'action': 'resume'})
+				self.logger.info("Daemon resumed")
+			
 			self.sensor_suspended = False
 
 	def _process_ball_throw(self):
@@ -463,5 +473,4 @@ class BowlingMachine:
 		"""Cleanup GPIO and stop sensor"""
 		self.logger.info("Cleaning up bowling machine")
 		self.stop_ball_sensor()
-
 		GPIO.cleanup()
