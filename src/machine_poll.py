@@ -16,6 +16,7 @@ class BowlingMachine:
 		self.logger = logger
 		self.active_game = None
 		self.pin_area = None
+		self.last_ball = None
 		self.detection_queue = detection_queue
 		self.control_queue = control_queue
 		
@@ -462,4 +463,5 @@ class BowlingMachine:
 		"""Cleanup GPIO and stop sensor"""
 		self.logger.info("Cleaning up bowling machine")
 		self.stop_ball_sensor()
+
 		GPIO.cleanup()
