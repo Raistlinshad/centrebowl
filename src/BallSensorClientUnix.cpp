@@ -1,25 +1,21 @@
+#include "BallSensorClientUnix.h"
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <string>
 #include <iostream>
-#include <thread>
-#include <atomic>
 #include <sstream>
-#include <vector>
-#include <nlohmann/json.hpp> // optional: if you want JSON parsing (or parse manually)
+#include <chrono>
+#include <cstring>
 
-class BallSensorClientUnix {
-public:
-    BallSensorClientUnix(const std::string& path = "/tmp/ball_sensor.sock")
-        : path_(path), fd_(-1), running_(false) {}
+BallSensorClientUnix::BallSensorClientUnix(const std::string& path)
+    : path_(path), fd_(-1), running_(false) {}
 
-    ~BallSensorClientUnix() {
-        stop();
-    }
+BallSensorClientUnix::~BallSensorClientUnix() {
+    stop();
+}
 
-    bool connectSocket(int timeout_ms = 2000) {
+bool BallSensorClientUnix::connectSocket(int timeout_ms) {
         fd_ = socket(AF_UNIX, SOCK_STREAM, 0);
         if (fd_ < 0) {
             perror("socket");
@@ -55,12 +51,12 @@ public:
             return false;
         }
 
-        // Restore blocking mode
-        fcntl(fd_, F_SETFL, flags);
-        return true;
-    }
+    // Restore blocking mode
+    fcntl(fd_, F_SETFL, flags);
+    return true;
+}
 
-    void start(std::function<void(const std::string&)> onMessage) {
+void BallSensorClientUnix::start(std::function<void(const std::string&)> onMessage) {
         if (fd_ < 0) return;
         running_ = true;
         reader_ = std::thread([this, onMessage]() {
@@ -84,42 +80,36 @@ public:
                 } else {
                     // EAGAIN/EINTR could be retried
                     std::this_thread::sleep_for(std::chrono::milliseconds(10));
-                }
             }
-        });
-    }
+        }
+    });
+}
 
-    void sendLastBall() {
-        sendRaw("LAST_BALL\n");
-    }
+void BallSensorClientUnix::sendLastBall() {
+    sendRaw("LAST_BALL\n");
+}
 
-    void sendPinSet(const std::vector<int>& pins) {
+void BallSensorClientUnix::sendPinSet(const std::vector<int>& pins) {
         std::ostringstream oss;
         oss << "PIN_SET [";
         for (size_t i = 0; i < pins.size(); ++i) {
             if (i) oss << ",";
             oss << pins[i];
         }
-        oss << "]\n";
-        sendRaw(oss.str());
-    }
+    oss << "]\n";
+    sendRaw(oss.str());
+}
 
-    void stop() {
+void BallSensorClientUnix::stop() {
         running_ = false;
-        if (reader_.joinable()) reader_.join();
-        if (fd_ != -1) close(fd_);
-        fd_ = -1;
-    }
+    if (reader_.joinable()) reader_.join();
+    if (fd_ != -1) close(fd_);
+    fd_ = -1;
+}
 
-private:
-    void sendRaw(const std::string& s) {
+void BallSensorClientUnix::sendRaw(const std::string& s) {
         if (fd_ < 0) return;
-        ssize_t n = write(fd_, s.c_str(), s.size());
-        if (n < 0) perror("write");
-    }
-
-    std::string path_;
-    int fd_;
-    std::thread reader_;
-    std::atomic<bool> running_;
-};
+    if (fd_ < 0) return;
+    ssize_t n = write(fd_, s.c_str(), s.size());
+    if (n < 0) perror("write");
+}

@@ -15,6 +15,7 @@ endif()
 add_executable(centrebowl_cpp
     src/main.cpp
     src/LaneClient.cpp
+    src/BallSensorClientUnix.cpp
 )
 
 target_include_directories(centrebowl_cpp PRIVATE include)
